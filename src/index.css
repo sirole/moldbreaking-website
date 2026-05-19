@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 52 100% 57%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 52 100% 57%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 52 100% 57%;
+    --radius: 0.625rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-dark text-white font-sans antialiased;
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #FFE225, #FFD700, #FFB800);
+  }
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, #FFE225, #FFD700, #FFB800);
+  }
+  .glow-brand {
+    box-shadow: 0 0 40px rgba(255, 226, 37, 0.3);
+  }
+  .glow-brand-lg {
+    box-shadow: 0 0 60px rgba(255, 226, 37, 0.4);
+  }
+  .glow-brand-sm {
+    box-shadow: 0 0 20px rgba(255, 226, 37, 0.2);
+  }
+}
+
+/* Custom scrollbar - Yellow theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FFE225, #FFD700);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFD700, #FFB800);
+}
+
+/* Selection - Yellow */
+::selection {
+  background: rgba(255, 226, 37, 0.3);
+  color: #fff;
+}
+
+/* Focus - Yellow */
+*:focus-visible {
+  outline: 2px solid rgba(255, 226, 37, 0.5);
+  outline-offset: 2px;
+}
+
+/* Glass morphism - Enhanced */
+.glass {
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-strong {
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-yellow {
+  background: rgba(255, 226, 37, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 226, 37, 0.15);
+}
+
+/* Glass button styles */
+.btn-glass {
+  @apply px-6 py-3 rounded-full font-medium transition-all duration-300 relative overflow-hidden;
+  background: rgba(255, 226, 37, 0.1);
+  border: 1px solid rgba(255, 226, 37, 0.3);
+  color: #FFE225;
+}
+
+.btn-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 226, 37, 0.2), rgba(255, 215, 0, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-glass:hover {
+  border-color: rgba(255, 226, 37, 0.6);
+  box-shadow: 0 0 30px rgba(255, 226, 37, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-glass:hover::before {
+  opacity: 1;
+}
+
+.btn-glass-primary {
+  @apply px-6 py-3 rounded-full font-semibold transition-all duration-300;
+  background: linear-gradient(135deg, #FFE225, #FFD700);
+  color: #0a0a0a;
+  border: none;
+}
+
+.btn-glass-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 40px rgba(255, 226, 37, 0.4);
+}
+
+.btn-glass-outline {
+  @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-glass-outline:hover {
+  border-color: rgba(255, 226, 37, 0.5);
+  color: #FFE225;
+  background: rgba(255, 226, 37, 0.05);
+}
+
+/* Card glass style */
+.card-glass {
+  @apply rounded-3xl transition-all duration-500;
+  background: rgba(17, 17, 17, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-glass:hover {
+  border-color: rgba(255, 226, 37, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(255, 226, 37, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Section padding */
+.section-padding {
+  @apply py-24 px-4 sm:px-6 lg:px-8 xl:px-12;
+}
+
+/* Geometric shapes */
+.geo-circle {
+  @apply rounded-full;
+}
+
+.geo-square {
+  @apply rounded-lg;
+}
+
+.geo-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: rgba(17, 17, 17, 0.8);
+  border-radius: 1rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #FFE225, #FFD700, #FFB800, #FFE225);
+  background-size: 300% 300%;
+  animation: gradient-rotate 4s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes gradient-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glow effects */
+.text-glow {
+  text-shadow: 0 0 20px rgba(255, 226, 37, 0.5);
+}
+
+/* Hover lift effect */
+.hover-lift {
+  @apply transition-all duration-300;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Stagger animation */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-item.visible {
+  animation: slide-up 0.6s ease forwards;
+}
+
+/* Particle dot */
+.particle-dot {
+  @apply absolute rounded-full;
+  background: #FFE225;
+}
+
+/* Line decoration */
+.line-deco {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 226, 37, 0.5), transparent);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 18px;
+  }
+}
